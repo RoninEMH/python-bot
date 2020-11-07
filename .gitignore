@@ -6,6 +6,6 @@
 
 #secret
 .env
-greeting.json
+greetings.json
 members.json
 /Greetings

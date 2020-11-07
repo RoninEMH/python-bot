@@ -29,6 +29,7 @@ async def createAll(ctx):
     async for member in ctx.guild.fetch_members():
         print("processing with " + member.name)
         if member.bot:
+            await ctx.message.channel.send(member.name + " is a bot")
             continue
         for memName in membersNames["data"]["members"]:
             if memName["id"] == member.id:
