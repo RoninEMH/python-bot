@@ -6,4 +6,6 @@
 
 #secret
 .env
-
+greeting.json
+members.json
+/Greetings
