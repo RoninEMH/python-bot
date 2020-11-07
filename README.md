@@ -1,2 +1,2 @@
 # python-bot
-discord bot written in python and discrod.py module
+discord bot written in python and discord.py module
