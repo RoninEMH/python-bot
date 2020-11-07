@@ -1,0 +1,9 @@
+
+
+#unneccary
+/venv/
+.idea/
+
+#secret
+.env
+
