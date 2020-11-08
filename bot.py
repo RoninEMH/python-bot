@@ -40,19 +40,19 @@ async def createAll(ctx):
                 except FileNotFoundError:
                     jsonFile2 = open("greetings.json", "r")
                     data = json.load(jsonFile2)
-                    new_element = {"id": member.id, "name": memName["id"], "url": url}
+                    new_element = {"id": member.id, "name": memName["name"], "url": url}
                     data["data"]["users"].append(new_element)
                     jsonFile2.close()
                     jsonFile3 = open("greetings.json", "w")
                     json.dump(data, jsonFile3)
-                    try:
-                        tts = memName["name"] + " has joined the channel"
-                        saver = gtts.gTTS(lang='en-us', text=tts)
-                        saver.save(url)
-                    except ValueError:
-                        await ctx.message.channel.send("Created a file for " + memName["name"])
-                        jsonFile3.close()
-                        continue
+                    while True:
+                        try:
+                            tts = memName["name"] + " has joined the channel"
+                            saver = gtts.gTTS(lang='en-us', text=tts)
+                            saver.save(url)
+                            break
+                        except ValueError:
+                            continue
                     await ctx.message.channel.send("Created a file for " + memName["name"])
                     jsonFile3.close()
     jsonFile1.close()
