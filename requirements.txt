@@ -1,3 +1,4 @@
 discord
 gtts
 python-dotenv
+PyNaCl
