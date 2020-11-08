@@ -21,6 +21,11 @@ async def on_ready():
 
 @bot.command()
 async def createAll(ctx):
+
+    otherURL = os.getcwd() + "\\Greetings"
+    if not os.path.exists(otherURL):
+        os.mkdir(otherURL)
+
     jsonFile1 = open("members.json", "r")
     membersNames = json.load(jsonFile1)
 

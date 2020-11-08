@@ -1,0 +1,91 @@
+{
+  "data": {
+    "users": [
+      {
+        "id": 432980290936373260,
+        "name": "Itay",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Itay.mp3"
+      },
+      {
+        "id": 595956534010445827,
+        "name": "Imri",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Imri.mp3"
+      },
+      {
+        "id": 574639938327281703,
+        "name": "Cabuly",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Cabuly.mp3"
+      },
+      {
+        "id": 415876870186467344,
+        "name": "Eyal",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Eyal.mp3"
+      },
+      {
+        "id": 372420506336362516,
+        "name": "Idan",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Idan.mp3"
+      },
+      {
+        "id": 333667279369797632,
+        "name": "Noam",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Noam.mp3"
+      },
+      {
+        "id": 327514395129282560,
+        "name": "Adi",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Adi.mp3"
+      },
+      {
+        "id": 239010371921248257,
+        "name": "Levi",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Levi.mp3"
+      },
+      {
+        "id": 238908101758156800,
+        "name": "Tirosh",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Tirosh.mp3"
+      },
+      {
+        "id": 203234014285266944,
+        "name": "Zaguri",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Zaguri.mp3"
+      },
+      {
+        "id": 203231873206321153,
+        "name": "Biran",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Biran.mp3"
+      },
+      {
+        "id": 198462039176249346,
+        "name": "Erez",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Erez.mp3"
+      },
+      {
+        "id": 188582541425508352,
+        "name": "Tamir",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Tamir.mp3"
+      },
+      {
+        "id": 188581932907495424,
+        "name": "Omer",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Omer.mp3"
+      },
+      {
+        "id": 188573771559337984,
+        "name": "Tom",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Tom.mp3"
+      },
+      {
+        "id": 182531123954319360,
+        "name": "Hen",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Hen.mp3"
+      },
+      {
+        "id": 149605952893616129,
+        "name": "Chudner",
+        "url": "C:\\Users\\itaym\\PycharmProjects\\DiscordBot\\.\\Greetings\\Chudner.mp3"
+      }
+    ]
+  }
+}
