@@ -21,7 +21,7 @@ async def on_ready():
 
 @bot.command()
 async def createAll(ctx):
-    otherURL = os.getcwd() + "\\Greetings"
+    otherURL = os.getcwd() + "/Greetings"
     if not os.path.exists(otherURL):
         os.mkdir(otherURL)
 
@@ -104,7 +104,7 @@ async def on_voice_state_update(member, before, after):
                     return
                 vc = await voice_channel.connect()
                 vc.play(
-                    discord.FFmpegPCMAudio(executable=os.getcwd() + "\\ffmpeg.exe",
+                    discord.FFmpegPCMAudio(executable=os.getcwd() + "/ffmpeg.exe",
                                            source=os.getcwd() + user["url"]))
                 while vc.is_playing():
                     time.sleep(.1)
