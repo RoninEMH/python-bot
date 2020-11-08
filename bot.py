@@ -98,7 +98,7 @@ async def on_voice_state_update(member, before, after):
             if after.channel is not None:
                 voice_channel = after.channel
                 try:
-                    open(user["url"])
+                    open(os.getcwd() + user["url"])
                 except FileNotFoundError:
                     print("audio not found for ", member.name)
                     return
