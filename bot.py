@@ -21,7 +21,6 @@ async def on_ready():
 
 @bot.command()
 async def createAll(ctx):
-
     otherURL = os.getcwd() + "\\Greetings"
     if not os.path.exists(otherURL):
         os.mkdir(otherURL)
@@ -43,7 +42,8 @@ async def createAll(ctx):
                 except FileNotFoundError:
                     jsonFile2 = open("greetings.json", "r")
                     data = json.load(jsonFile2)
-                    new_element = {"id": member.id, "name": memName["name"], "url": "\\.\\Greetings\\" + memName["name"] + ".mp3"}
+                    new_element = {"id": member.id, "name": memName["name"],
+                                   "url": "\\.\\Greetings\\" + memName["name"] + ".mp3"}
                     data["data"]["users"].append(new_element)
                     jsonFile2.close()
                     jsonFile3 = open("greetings.json", "w")
@@ -104,8 +104,8 @@ async def on_voice_state_update(member, before, after):
                     return
                 vc = await voice_channel.connect()
                 vc.play(
-                    discord.FFmpegPCMAudio(executable=r"C:\ffmpeg\bin\ffmpeg.exe",
-                                           source=os.getcwd()+user["url"]))
+                    discord.FFmpegPCMAudio(executable=os.getcwd() + "\\ffmpeg.exe",
+                                           source=os.getcwd() + user["url"]))
                 while vc.is_playing():
                     time.sleep(.1)
                 await vc.disconnect()
