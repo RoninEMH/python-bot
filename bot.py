@@ -35,7 +35,7 @@ async def createAll(ctx):
             continue
         for memName in membersNames["data"]["members"]:
             if memName["id"] == member.id:
-                url = os.getcwd() + "\\.\\Greetings\\" + memName["name"] + ".mp3"
+                url = os.getcwd() + "/./Greetings/" + memName["name"] + ".mp3"
                 try:
                     open(url)
                     await ctx.message.channel.send(memName["name"] + " already has a file")
@@ -43,7 +43,7 @@ async def createAll(ctx):
                     jsonFile2 = open("greetings.json", "r")
                     data = json.load(jsonFile2)
                     new_element = {"id": member.id, "name": memName["name"],
-                                   "url": "\\.\\Greetings\\" + memName["name"] + ".mp3"}
+                                   "url": "/./Greetings/" + memName["name"] + ".mp3"}
                     data["data"]["users"].append(new_element)
                     jsonFile2.close()
                     jsonFile3 = open("greetings.json", "w")
