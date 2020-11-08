@@ -13,8 +13,8 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!')
 
-a = ctypes.util.find_library('opus')
-discord.opus.load_opus(name=a)
+# a = ctypes.util.find_library('opus')
+discord.opus.load_opus('opus')
 
 
 @bot.event
