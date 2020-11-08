@@ -104,7 +104,7 @@ async def on_voice_state_update(member, before, after):
                     return
                 vc = await voice_channel.connect()
                 vc.play(
-                    discord.FFmpegPCMAudio(executable=os.getcwd() + r"/ffmpeg.exe",
+                    discord.FFmpegPCMAudio(executable="ffmpeg",
                                            source=os.getcwd() + user["url"]))
                 while vc.is_playing():
                     time.sleep(.1)
