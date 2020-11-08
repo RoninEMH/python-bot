@@ -11,7 +11,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!')
-
+discord.opus.load_opus()
 
 @bot.event
 async def on_ready():
