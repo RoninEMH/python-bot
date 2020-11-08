@@ -1,0 +1,6 @@
+os
+discord
+time
+gtts
+json
+dotnev
