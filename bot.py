@@ -21,8 +21,6 @@ async def on_ready():
 
 @bot.command()
 async def createAll(ctx):
-    # members = ctx.guild.fetch_members()
-    # print(members)
     jsonFile1 = open("members.json", "r")
     membersNames = json.load(jsonFile1)
 
