@@ -54,7 +54,8 @@ async def createAll(ctx):
                             saver = gtts.gTTS(lang='en-us', text=tts)
                             saver.save(url)
                             break
-                        except ValueError:
+                        except ValueError as ve:
+                            print(ve)
                             continue
                     await ctx.message.channel.send("Created a file for " + memName["name"])
                     jsonFile3.close()
