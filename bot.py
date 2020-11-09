@@ -55,6 +55,7 @@ async def createAll(ctx):
                             saver.save(url)
                             break
                         except ValueError as ve:
+                            print("Error")
                             print(ve)
                             continue
                     await ctx.message.channel.send("Created a file for " + memName["name"])
