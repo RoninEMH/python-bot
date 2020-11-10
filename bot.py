@@ -68,7 +68,7 @@ async def createAllGreetings(ctx):
 @bot.command()
 async def createAllGoodbyes(ctx):
     otherURL = os.getcwd() + "/GoodByes"
-    if os.path.exists(otherURL):
+    if not os.path.exists(otherURL):
         os.mkdir(otherURL)
 
     jsonFile1 = open("members.json", "r")
