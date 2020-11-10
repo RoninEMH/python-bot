@@ -124,7 +124,7 @@ async def on_voice_state_update(member, before, after):
     if after.channel is not None and 'General' in after.channel.name:
         print("Hi ", member.name)
 
-    elif 'General' in before.channel.name:
+    elif after.channel is None:
         print("Bye ", member.name)
 
     if before.self_stream is not after.self_stream:  # or before.self_deaf is not after.self_deaf
@@ -133,32 +133,51 @@ async def on_voice_state_update(member, before, after):
     if before.self_mute is not after.self_mute and before.self_deaf is after.self_deaf:
         return
 
-    if before.self_deaf is False and 'General' not in after.channel.name:
-        return
+    if (
+            before.self_deaf is False and after.self_deaf is True and before.channel.name == after.channel.name) or after.channel is None:
+        file = open("goodbyes.json", "r")
+        data = json.load(file)
 
-    if after.self_deaf is True:
-        return
+        for user in data["data"]["users"]:
+            if user["id"] == member.id or user["name"] == member.name:
+                if before.channel is not None:
+                    voice_channel = before.channel
+                    try:
+                        open(os.getcwd() + user["url"])
+                    except FileNotFoundError:
+                        print("audio not found for ", member.name)
+                        return
+                    vc = await voice_channel.connect()
+                    vc.play(
+                        discord.FFmpegPCMAudio(executable="ffmpeg",
+                                               source=os.getcwd() + user["url"]))
+                    while vc.is_playing():
+                        time.sleep(.1)
+                    await vc.disconnect()
+        file.close()
 
-    file = open("greetings.json", "r")
-    data = json.load(file)
+    elif (
+            before.self_deaf is True and after.self_deaf is False and before.channel.name == after.channel.name) or 'General' in after.channel.name:
+        file = open("greetings.json", "r")
+        data = json.load(file)
 
-    for user in data["data"]["users"]:
-        if user["id"] == member.id or user["name"] == member.name:
-            if after.channel is not None:
-                voice_channel = after.channel
-                try:
-                    open(os.getcwd() + user["url"])
-                except FileNotFoundError:
-                    print("audio not found for ", member.name)
-                    return
-                vc = await voice_channel.connect()
-                vc.play(
-                    discord.FFmpegPCMAudio(executable="ffmpeg",
-                                           source=os.getcwd() + user["url"]))
-                while vc.is_playing():
-                    time.sleep(.1)
-                await vc.disconnect()
-    file.close()
+        for user in data["data"]["users"]:
+            if user["id"] == member.id or user["name"] == member.name:
+                if after.channel is not None:
+                    voice_channel = after.channel
+                    try:
+                        open(os.getcwd() + user["url"])
+                    except FileNotFoundError:
+                        print("audio not found for ", member.name)
+                        return
+                    vc = await voice_channel.connect()
+                    vc.play(
+                        discord.FFmpegPCMAudio(executable="ffmpeg",
+                                               source=os.getcwd() + user["url"]))
+                    while vc.is_playing():
+                        time.sleep(.1)
+                    await vc.disconnect()
+        file.close()
 
 
 bot.run(TOKEN)
