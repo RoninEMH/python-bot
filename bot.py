@@ -20,7 +20,7 @@ async def on_ready():
 
 
 @bot.command()
-async def createAll(ctx):
+async def createAllGreetings(ctx):
     otherURL = os.getcwd() + "/Greetings"
     if not os.path.exists(otherURL):
         os.mkdir(otherURL)
@@ -62,6 +62,53 @@ async def createAll(ctx):
                     jsonFile3.close()
     jsonFile1.close()
     print("done")
+    await ctx.message.channel.send("Done")
+
+
+@bot.command()
+async def createAllGoodbyes(ctx):
+    otherURL = os.getcwd() + "/GoodByes"
+    if os.path.exists(otherURL):
+        os.mkdir(otherURL)
+
+    jsonFile1 = open("members.json", "r")
+    membersNames = json.load(jsonFile1)
+
+    async for member in ctx.guild.fetch_members():
+        print("processing with " + member.name)
+        if member.bot:
+            await ctx.message.channel.send(member.name + " is a bot")
+            continue
+        for memName in membersNames["data"]["members"]:
+            if memName["id"] == member.id:
+                url = os.getcwd() + "/./GoodByes/" + memName["name"] + ".mp3"
+                try:
+                    open(url)
+                    await ctx.message.channel.send(memName["name"] + " already has a file")
+                except FileNotFoundError:
+                    jsonFile2 = open("goodbyes.json", "r")
+                    data = json.load(jsonFile2)
+                    new_element = {"id": member.id, "name": memName["name"],
+                                   "url": "/./GoodByes/" + memName["name"] + ".mp3"}
+                    data["data"]["users"].append(new_element)
+                    jsonFile2.close()
+                    jsonFile3 = open("goodbyes.json", "w")
+                    json.dump(data, jsonFile3)
+                    while True:
+                        try:
+                            tts = memName["name"] + " has left the channel"
+                            saver = gtts.gTTS(lang='en-us', text=tts)
+                            saver.save(url)
+                            break
+                        except ValueError as ve:
+                            print("Error")
+                            print(ve)
+                            continue
+                    await ctx.message.channel.send("Created a file for " + memName["name"])
+                    jsonFile3.close()
+    jsonFile1.close()
+    print("done")
+    await ctx.message.channel.send("Done")
 
 
 @bot.event
